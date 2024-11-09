@@ -1,11 +1,11 @@
 export type TProduct = {
   name: string;
   price: number;
+  category: string;
+  description: string;
+  images: string[];
   stock: number;
   quantity: number;
-  description: string;
-  images: string;
-  category: string;
 };
 export type TCategory = {
   name: string;

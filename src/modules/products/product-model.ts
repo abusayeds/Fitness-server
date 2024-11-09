@@ -5,39 +5,34 @@ const ProductSchema = new Schema<TProduct>(
   {
     name: {
       type: String,
-      trim: true,
       required: true,
     },
     price: {
       type: Number,
-      trim: true,
+      required: true,
+    },
+    category: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+    },
+    images: {
+      type: [String],
+      default: [],
       required: true,
     },
     stock: {
       type: Number,
-      trim: true,
       required: true,
+      default: 3,
     },
     quantity: {
       type: Number,
       trim: true,
       required: true,
-    },
-    description : {
-      type: String,
-      trim: true,
-     
-    },
-    images: {
-      type: String,
-      trim: true,
-    //   unique :true,
-      required: true,
-    },
-    category: {
-      type: String,
-      trim: true,
-      required: true,
+      default: 1,
     },
   },
   {
@@ -45,7 +40,4 @@ const ProductSchema = new Schema<TProduct>(
   }
 );
 
-export const ProductModel = model<TProduct>("product", ProductSchema);
-
-
-
+export const ProductModel = model<TProduct>("Product", ProductSchema);

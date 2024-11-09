@@ -1,4 +1,4 @@
-import queryBuilder from "../app/builder/queryBuilder";
+import queryBuilder from "../../app/builder/queryBuilder";
 import { productSearchableFields } from "./product-constant";
 import { TProduct } from "./product-interface";
 import { ProductModel } from "./product-model";
@@ -17,28 +17,28 @@ const getAllProductDB = async (query: Record<string, unknown>) => {
     .fields();
 
   const result = await ProductQuery.modelQuery;
+
   return result;
 };
-const getSingleProductDB = async (id :string) => {
-    const result = await ProductModel.findById(id)
-    return result
-}
+const getSingleProductDB = async (id: string) => {
+  const result = await ProductModel.findById(id);
+  return result;
+};
 const deleteProductDB = async (id: string) => {
-    const result = await ProductModel.findByIdAndDelete(id);
-    return result;
-  };
-const UpdateProductDB = async (id: string , payload: Partial<TProduct>)  => {
-   
-    const result = await ProductModel.findByIdAndUpdate({_id: id}, payload,{new: true})
-    return result
-}
+  const result = await ProductModel.findByIdAndDelete(id);
+  return result;
+};
+const UpdateProductDB = async (id: string, payload: Partial<TProduct>) => {
+  const result = await ProductModel.findByIdAndUpdate({ _id: id }, payload, {
+    new: true,
+  });
+  return result;
+};
 
 export const productServise = {
   createProductDB,
   getAllProductDB,
   getSingleProductDB,
   UpdateProductDB,
-  deleteProductDB
+  deleteProductDB,
 };
-
-// category
